@@ -1,4 +1,4 @@
-from tms import threaded_merge_sort
+from threaded_merge_sort import threaded_merge_sort
 import random
 import matplotlib.pyplot as plt
 import time
