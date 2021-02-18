@@ -36,7 +36,7 @@ def analyze_threaded_merge_sort(n: int = 30000, tpt: int = 50, t: int = 8) -> st
     """
     x = []
     y = []
-    # We loop over all the threads
+    # We loop over all the threads.
     for tc in range(t):
         # Save the results.
         results = []

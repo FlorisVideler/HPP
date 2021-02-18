@@ -11,14 +11,14 @@ def merge_sort(l: list) -> list:
     if len(l) == 1:
         return l
 
-    # Split the list
+    # Split the list.
     l1 = l[:len(l) // 2]
     l2 = l[len(l) // 2:]
 
-    # Merge sort the two split lists
+    # Merge sort the two split lists.
     l1 = merge_sort(l1)
     l2 = merge_sort(l2)
-    # Merge the two lists
+    # Merge the two lists.
     return merge(l1, l2)
 
 
@@ -30,7 +30,7 @@ def merge(l1: list, l2: list) -> list:
     :return: A sorted merged list.
     """
     s = []
-    # While both lists still have data
+    # While both lists still have data.
     while l1 and l2:
         if l1[0] > l2[0]:
             s.append(l2[0])
@@ -39,7 +39,7 @@ def merge(l1: list, l2: list) -> list:
             s.append(l1[0])
             l1.pop(0)
 
-    # Only l1 has data left
+    # Only l1 has data left.
     for i in l1:
         s.append(i)
 
@@ -56,7 +56,7 @@ def split_lists(data: list, thread_count: int) -> list:
     :param thread_count: How many lists there need to be
     :return: A list with split lists.
     """
-    # Split the list
+    # Split the list.
     split_data = [data[:len(data) // 2], data[len(data) // 2:]]
     # Keep splitting the list till we have enough lists to distribute over all the threads.
     while len(split_data) < thread_count:
@@ -87,9 +87,9 @@ def threaded_merge_sort(data: list, thread_count: int) -> list:
         for index in range(thread_count):
             # Start the thread.
             r = executor.submit(merge_sort, split_data[index])
-            # Add it to a list so we can keep track of it
+            # Add it to a list so we can keep track of it.
             threads.append(r)
-        # Loop over all the threads
+        # Loop over all the threads.
         for t in threads:
             # Wait for the thread to finish and get its result.
             results.append(t.result())
